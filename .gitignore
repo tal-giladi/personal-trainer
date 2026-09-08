@@ -1,0 +1,4 @@
+.claude/settings.local.json
+tools/trainer/bin/
+tools/trainer/obj/
+*.trx

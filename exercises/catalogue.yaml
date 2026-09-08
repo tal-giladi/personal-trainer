@@ -1,0 +1,36 @@
+# Exercise catalogue. `unit` says what a set records: reps (+kg), time (min/sec), distance (km).
+# `substitute` is what /workout swaps in when the exercise hurts.
+exercises:
+  # --- lower ---
+  - { name: goblet squat,        muscles: [quads, glutes],   equipment: dumbbell,   unit: reps, substitute: split squat }
+  - { name: split squat,         muscles: [quads, glutes],   equipment: dumbbell,   unit: reps, substitute: step up }
+  - { name: step up,             muscles: [quads, glutes],   equipment: dumbbell,   unit: reps }
+  - { name: romanian deadlift,   muscles: [hamstrings, glutes, back], equipment: dumbbell, unit: reps, substitute: glute bridge, aliases: [rdl] }
+  - { name: glute bridge,        muscles: [glutes],          equipment: bodyweight, unit: reps }
+  - { name: calf raise,          muscles: [calves],          equipment: dumbbell,   unit: reps }
+  # --- push ---
+  - { name: dumbbell bench press, muscles: [chest, triceps], equipment: dumbbell,   unit: reps, substitute: push up, aliases: [db press, floor press] }
+  - { name: push up,             muscles: [chest, triceps],  equipment: bodyweight, unit: reps, aliases: [pushup] }
+  - { name: shoulder press,      muscles: [shoulders],       equipment: dumbbell,   unit: reps, substitute: lateral raise, aliases: [overhead press, ohp] }
+  - { name: lateral raise,       muscles: [shoulders],       equipment: dumbbell,   unit: reps }
+  - { name: triceps extension,   muscles: [triceps],         equipment: dumbbell,   unit: reps }
+  # --- pull ---
+  - { name: dumbbell row,        muscles: [back, biceps],    equipment: dumbbell,   unit: reps, aliases: [row, db row] }
+  - { name: pull up,             muscles: [back, biceps],    equipment: pull_up_bar, unit: reps, substitute: band pulldown, aliases: [pullup, chin up] }
+  - { name: band pulldown,       muscles: [back],            equipment: band,       unit: reps }
+  - { name: band pull apart,     muscles: [rear delts, upper back], equipment: band, unit: reps }
+  - { name: biceps curl,         muscles: [biceps],          equipment: dumbbell,   unit: reps, aliases: [curl] }
+  # --- core ---
+  - { name: plank,               muscles: [core],            equipment: bodyweight, unit: time }
+  - { name: hollow hold,         muscles: [core],            equipment: bodyweight, unit: time }
+  - { name: dead bug,            muscles: [core],            equipment: bodyweight, unit: reps }
+  # --- cardio / hiit (a "set" is one tabata block: rounds x work/rest) ---
+  - { name: tabata,              muscles: [cardio],          equipment: bodyweight, unit: time, aliases: [hiit] }
+  - { name: burpee,              muscles: [cardio, full],    equipment: bodyweight, unit: reps }
+  - { name: mountain climber,    muscles: [cardio, core],    equipment: bodyweight, unit: reps }
+  - { name: jump squat,          muscles: [cardio, quads],   equipment: bodyweight, unit: reps, substitute: goblet squat }
+  - { name: high knees,          muscles: [cardio],          equipment: bodyweight, unit: time }
+  - { name: jumping jack,        muscles: [cardio],          equipment: bodyweight, unit: reps }
+  - { name: skater,              muscles: [cardio, glutes],  equipment: bodyweight, unit: reps }
+  - { name: run,                 muscles: [cardio],          equipment: none,       unit: distance }
+  - { name: walk,                muscles: [cardio],          equipment: none,       unit: distance }

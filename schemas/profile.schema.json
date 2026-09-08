@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "profile.schema.json",
+  "title": "Trainee profile",
+  "type": "object",
+  "required": ["name", "goals", "training_days_per_week", "active_plan"],
+  "properties": {
+    "name": { "type": "string" },
+    "units": { "type": "object" },
+    "timezone": { "type": "string" },
+    "language": { "type": "string" },
+    "goals": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+    "training_days_per_week": { "type": "integer", "minimum": 1, "maximum": 7 },
+    "session_length_min": { "type": "integer", "minimum": 10 },
+    "location": { "type": "string" },
+    "equipment": { "type": "object" },
+    "injuries": { "type": "array", "items": { "type": "object", "required": ["area"] } },
+    "track_body_metrics": { "type": "boolean" },
+    "active_plan": { "type": "string" }
+  }
+}

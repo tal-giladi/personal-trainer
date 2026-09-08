@@ -1,0 +1,61 @@
+# Active programme — 7 days, strength/HIIT alternating. Loads are TODO until the first
+# session logs them; the trainer sets the starting load from what Tal reports on day 1.
+name: 2026-09-current
+starts: 2026-09-08
+weeks: 8
+deload_every_n_weeks: 4
+progression:
+  reps_kg:    { rule: linear, when: "all sets hit target reps at rpe <= 8 on 2 consecutive sessions", step_kg: 2, miss_hold: 1, misses_before_deload: 3, deload_pct: 10 }
+  bodyweight: { rule: linear, step_reps: 1 }
+  time:       { rule: linear, step_pct: 5 }
+  tabata:     { rule: linear, step: "+1 round, then +1 block", max_blocks: 4 }
+  distance:   { rule: linear, step_pct: 5 }
+days:
+  A:  # Mon — lower strength
+    focus: lower
+    exercises:
+      - { name: goblet squat,      sets: 4, reps: 8,  kg: TODO }
+      - { name: romanian deadlift, sets: 3, reps: 10, kg: TODO }
+      - { name: split squat,       sets: 3, reps: 8,  kg: TODO, note: per leg }
+      - { name: calf raise,        sets: 3, reps: 15, kg: TODO }
+      - { name: plank,             sets: 3, sec: 45 }
+  B:  # Tue — HIIT
+    focus: cardio
+    exercises:
+      - { name: tabata, blocks: 3, rounds: 8, work_sec: 20, rest_sec: 10, rest_between_blocks_sec: 60,
+          moves: [burpee, mountain climber, jump squat, high knees] }
+  C:  # Wed — upper push
+    focus: push
+    exercises:
+      - { name: dumbbell bench press, sets: 4, reps: 8,  kg: TODO }
+      - { name: shoulder press,       sets: 3, reps: 10, kg: TODO }
+      - { name: push up,              sets: 3, reps: 15 }
+      - { name: lateral raise,        sets: 3, reps: 12, kg: TODO }
+      - { name: triceps extension,    sets: 3, reps: 12, kg: TODO }
+  D:  # Thu — HIIT
+    focus: cardio
+    exercises:
+      - { name: tabata, blocks: 3, rounds: 8, work_sec: 20, rest_sec: 10, rest_between_blocks_sec: 60,
+          moves: [jumping jack, skater, push up, high knees] }
+  E:  # Fri — upper pull + core
+    focus: pull
+    exercises:
+      - { name: dumbbell row,    sets: 4, reps: 10, kg: TODO }
+      - { name: pull up,         sets: 3, reps: 6 }
+      - { name: band pull apart, sets: 3, reps: 15 }
+      - { name: biceps curl,     sets: 3, reps: 12, kg: TODO }
+      - { name: hollow hold,     sets: 3, sec: 30 }
+      - { name: dead bug,        sets: 3, reps: 10, note: per side }
+  F:  # Sat — easy cardio
+    focus: recovery
+    exercises:
+      - { name: run, km: 4, note: "easy pace; walk instead if legs are dead" }
+  G:  # Sun — full body + finisher
+    focus: full
+    exercises:
+      - { name: goblet squat,         sets: 3, reps: 10, kg: TODO }
+      - { name: dumbbell bench press, sets: 3, reps: 10, kg: TODO }
+      - { name: dumbbell row,         sets: 3, reps: 10, kg: TODO }
+      - { name: romanian deadlift,    sets: 3, reps: 10, kg: TODO }
+      - { name: tabata, blocks: 1, rounds: 8, work_sec: 20, rest_sec: 10, moves: [burpee, jump squat] }
+schedule: { mon: A, tue: B, wed: C, thu: D, fri: E, sat: F, sun: G }

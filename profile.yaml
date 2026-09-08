@@ -1,0 +1,20 @@
+# Tal — trainer profile. Fill the TODOs when you get to them; nothing else needs them yet.
+name: Tal
+units: { load: kg, distance: km, time: min }
+timezone: Asia/Jerusalem
+language: en
+goals:
+  - strength
+  - cardio
+training_days_per_week: 7
+session_length_min: 45
+location: home
+equipment:
+  dumbbells: { type: TODO adjustable|fixed, pairs_kg: [TODO] }
+  bands: true
+  pull_up_bar: TODO true|false
+  bench: TODO true|false
+  mat: true
+injuries: []           # e.g. - { area: knee, note: "no deep lunges" }
+track_body_metrics: false
+active_plan: 2026-09-current
