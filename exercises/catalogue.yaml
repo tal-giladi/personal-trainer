@@ -1,5 +1,13 @@
 # Exercise catalogue. `unit` says what a set records: reps (+kg), time (min/sec), distance (km).
 # `substitute` is what /workout swaps in when the exercise hurts.
+# Muscle groups the trainer plans by. The FIRST muscle listed is the primary one and decides
+# which group an exercise counts for (RDL -> hamstrings -> legs, not pull).
+groups:
+  legs:   [quads, glutes, hamstrings, calves]
+  push:   [chest, shoulders, triceps]
+  pull:   [back, biceps, rear delts, upper back]
+  core:   [core]
+  cardio: [cardio, full]
 exercises:
   # --- lower ---
   - { name: goblet squat,        muscles: [quads, glutes],   equipment: dumbbell,   unit: reps, substitute: split squat }

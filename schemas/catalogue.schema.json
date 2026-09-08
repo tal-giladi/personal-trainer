@@ -3,21 +3,78 @@
   "$id": "catalogue.schema.json",
   "title": "Exercise catalogue",
   "type": "object",
-  "required": ["exercises"],
+  "required": [
+    "groups",
+    "exercises"
+  ],
   "properties": {
+    "groups": {
+      "type": "object",
+      "required": [
+        "legs",
+        "push",
+        "pull",
+        "core",
+        "cardio"
+      ],
+      "additionalProperties": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "minItems": 1
+      }
+    },
     "exercises": {
       "type": "array",
       "items": {
         "type": "object",
-        "required": ["name", "muscles", "equipment", "unit"],
+        "required": [
+          "name",
+          "muscles",
+          "equipment",
+          "unit"
+        ],
         "additionalProperties": false,
         "properties": {
-          "name": { "type": "string" },
-          "muscles": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
-          "equipment": { "type": "string", "enum": ["dumbbell", "band", "bodyweight", "pull_up_bar", "bench", "none"] },
-          "unit": { "type": "string", "enum": ["reps", "time", "distance"] },
-          "substitute": { "type": "string" },
-          "aliases": { "type": "array", "items": { "type": "string" } }
+          "name": {
+            "type": "string"
+          },
+          "muscles": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "minItems": 1
+          },
+          "equipment": {
+            "type": "string",
+            "enum": [
+              "dumbbell",
+              "band",
+              "bodyweight",
+              "pull_up_bar",
+              "bench",
+              "none"
+            ]
+          },
+          "unit": {
+            "type": "string",
+            "enum": [
+              "reps",
+              "time",
+              "distance"
+            ]
+          },
+          "substitute": {
+            "type": "string"
+          },
+          "aliases": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
         }
       }
     }

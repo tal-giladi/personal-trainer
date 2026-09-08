@@ -7,7 +7,8 @@ description: Weekly review — adherence, volume, PRs, and next week's plan chan
 
 1. Week = last Mon–Sun (Asia/Jerusalem) unless Tal names one (`2026-W37`).
 2. Read every log in that week. Compute (with `trainer stats` when it exists, else by hand):
-   - adherence: sessions logged / 7
+   - adherence: sessions logged / 7; days `followed_plan: false` (what he did instead)
+   - muscle groups: sessions and sets per group vs `weekly_targets` (`py tools/muscles.py`)
    - per strength exercise: top set (kg × reps), total volume (Σ kg×reps), vs previous week
    - tabata: blocks × rounds completed vs planned
    - cardio: km, min

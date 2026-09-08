@@ -23,6 +23,8 @@ pairs = {
 }
 for f in glob.glob("plans/*.yaml") + glob.glob("plans/archive/*.yaml"):
     pairs[f] = "schemas/plan.schema.json"
+if os.path.exists("plans/next.yaml"):
+    pairs["plans/next.yaml"] = "schemas/next.schema.json"
 for f in glob.glob("logs/**/*.yaml", recursive=True):
     pairs[f] = "schemas/log.schema.json"
 

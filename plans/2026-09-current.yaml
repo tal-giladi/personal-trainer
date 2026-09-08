@@ -1,5 +1,6 @@
-# Active programme — 7 days, strength/HIIT alternating. Loads are TODO until the first
-# session logs them; the trainer sets the starting load from what Tal reports on day 1.
+# Active programme: templates A-G + the rules the trainer uses to pick tomorrow's session.
+# There is NO fixed weekly schedule - the next day is chosen from muscle-group recovery
+# (tools/muscles.py) and what was actually done. Loads are TODO until the first log sets them.
 name: 2026-09-current
 starts: 2026-09-08
 weeks: 8
@@ -10,35 +11,45 @@ progression:
   time:       { rule: linear, step_pct: 5 }
   tabata:     { rule: linear, step: "+1 round, then +1 block", max_blocks: 4 }
   distance:   { rule: linear, step_pct: 5 }
+selection:
+  recovery_hours: { legs: 48, push: 48, pull: 48, core: 24, cardio: 24 }
+  weekly_targets: { legs: 2, push: 2, pull: 2, core: 3, cardio: 3 }
+  stale_after_days: 5
+  notes: "alternate strength / hiit; a STALE group jumps the queue; never two same-group strength days in a row"
 days:
-  A:  # Mon — lower strength
-    focus: lower
+  A:
+    focus: lower strength
+    groups: [legs, core]
     exercises:
       - { name: goblet squat,      sets: 4, reps: 8,  kg: TODO }
       - { name: romanian deadlift, sets: 3, reps: 10, kg: TODO }
       - { name: split squat,       sets: 3, reps: 8,  kg: TODO, note: per leg }
       - { name: calf raise,        sets: 3, reps: 15, kg: TODO }
       - { name: plank,             sets: 3, sec: 45 }
-  B:  # Tue — HIIT
-    focus: cardio
+  B:
+    focus: hiit
+    groups: [cardio]
     exercises:
       - { name: tabata, blocks: 3, rounds: 8, work_sec: 20, rest_sec: 10, rest_between_blocks_sec: 60,
           moves: [burpee, mountain climber, jump squat, high knees] }
-  C:  # Wed — upper push
-    focus: push
+  C:
+    focus: upper push
+    groups: [push]
     exercises:
       - { name: dumbbell bench press, sets: 4, reps: 8,  kg: TODO }
       - { name: shoulder press,       sets: 3, reps: 10, kg: TODO }
       - { name: push up,              sets: 3, reps: 15 }
       - { name: lateral raise,        sets: 3, reps: 12, kg: TODO }
       - { name: triceps extension,    sets: 3, reps: 12, kg: TODO }
-  D:  # Thu — HIIT
-    focus: cardio
+  D:
+    focus: hiit, low impact
+    groups: [cardio]
     exercises:
       - { name: tabata, blocks: 3, rounds: 8, work_sec: 20, rest_sec: 10, rest_between_blocks_sec: 60,
           moves: [jumping jack, skater, push up, high knees] }
-  E:  # Fri — upper pull + core
-    focus: pull
+  E:
+    focus: upper pull + core
+    groups: [pull, core]
     exercises:
       - { name: dumbbell row,    sets: 4, reps: 10, kg: TODO }
       - { name: pull up,         sets: 3, reps: 6 }
@@ -46,16 +57,17 @@ days:
       - { name: biceps curl,     sets: 3, reps: 12, kg: TODO }
       - { name: hollow hold,     sets: 3, sec: 30 }
       - { name: dead bug,        sets: 3, reps: 10, note: per side }
-  F:  # Sat — easy cardio
-    focus: recovery
+  F:
+    focus: easy cardio / recovery
+    groups: [cardio]
     exercises:
       - { name: run, km: 4, note: "easy pace; walk instead if legs are dead" }
-  G:  # Sun — full body + finisher
-    focus: full
+  G:
+    focus: full body + finisher
+    groups: [legs, push, pull, cardio]
     exercises:
       - { name: goblet squat,         sets: 3, reps: 10, kg: TODO }
       - { name: dumbbell bench press, sets: 3, reps: 10, kg: TODO }
       - { name: dumbbell row,         sets: 3, reps: 10, kg: TODO }
       - { name: romanian deadlift,    sets: 3, reps: 10, kg: TODO }
       - { name: tabata, blocks: 1, rounds: 8, work_sec: 20, rest_sec: 10, moves: [burpee, jump squat] }
-schedule: { mon: A, tue: B, wed: C, thu: D, fri: E, sat: F, sun: G }
